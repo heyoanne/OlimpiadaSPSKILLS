@@ -1,0 +1,422 @@
+/* Anotações */
+
+/* Font
+    cores
+    border-radious
+    Tamanho do histórico que não bate com o próximos
+    Diminuir conteúdo para funcionar em telas maiores
+    Deixar responsivo para que funcione bem em qualquer monitor */
+
+
+
+
+
+
+* {
+    font-family: 'arial';
+    font-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: #f3f3f3;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Nav */
+.naveg {
+    /* background-color: green; */
+    background-color: #e4e4e4;
+    /* background-color: #fff; */
+    height: 15px;
+    padding: 3px 10px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.naveg .logo {
+    width: 70px;
+}
+
+main {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: space-evenly;
+   
+    gap: 2px;
+    
+     margin: 0px 10px 10px 10px;
+} 
+
+footer {
+    /* background-color: olivedrab; */
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 50px 10px 990px;
+}
+footer img {
+    width: 50px;
+    opacity: 30%;
+    margin: 10px auto 0 auto;
+    /* background-color: red; */
+}
+footer p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 50%;
+    text-align: center;
+}
+
+/* containers de divisão da tela */
+
+.content-um, .content-two{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+   
+    gap: 10px;
+
+}
+
+/* SELECIONAR GUICHÊ */
+.guicheBox {
+    display: flex;
+    flex-flow: column wrap;
+    text-align: center;
+
+    width: 580px;
+    padding: 20px;
+
+    border-radius: 10px;
+    background-color: #fff;
+
+    box-shadow:
+        0.5px 0.5px 1px #a3a3a35d,
+        0.5px 3px 7px #a3a3a370,
+        inset -1.5px -1.5px 3px #c9c9c970;
+}
+
+.guicheBox h1,
+.proximosBox h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #50525e;
+}
+
+.todosGuiches,
+.proximos {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+
+    border-radius: 15px;
+}
+
+.guiche {
+    background-color: #00669c;
+
+    box-shadow:
+        0 0 4px #a3a3a37a,
+        0 0 7px #00659c21;
+
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.guiche img {
+    width: 45px;
+}
+.guiche:focus,
+.guiche:hover {
+    background-color: #ee0000;
+    
+    /* Fazer botão neomorthobic dentro e fora, vai ficar bom*/
+    margin-top: 3px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+
+/* PRÓXIMOS */
+.proximosBox {
+    /* background-color: blue; */
+    
+    text-align: center;
+    justify-content: space-evenly;
+
+    width: 580px;
+    height: 376px;
+    overflow-y: scroll;
+    padding: 20px;
+
+    border-radius: 10px;
+    background-color: #fff;
+
+    box-shadow:
+        0.5px 0.5px 1px #a3a3a35d,
+        0.5px 3px 7px #a3a3a370,
+        inset -1.5px -1.5px 3px #c9c9c970;
+}
+
+.prox-nome,
+.prox-tipo,
+.prox-senha {
+    margin: 0;
+    border-radius: 15px;
+}
+.prox-nome h3,
+.prox-tipo h3,
+.prox-senha h3, .button-chamar {
+    text-align: center;
+    background-color: #e00a0a;
+    /* background-color: #00669c; */
+    font-weight: bold;
+    color: #fff;
+    border-radius: 50px;
+
+
+
+    padding: 5px;
+
+    border: none;
+    box-shadow:
+        0 0 4px #a3a3a37a,
+        0 0 7px #e00a0a21;
+}
+
+a{
+    color: white;
+}
+
+.button-atendido{
+    text-align: center;
+    background-color: #e00a0a;
+    /* background-color: #00669c; */
+    font-weight: bold;
+    color: #ffffff
+    border-radius: 50px;
+
+    padding: 5px 12px ;
+    margin-top: 5px;
+
+    font-style: none;
+    text-decoration: none;
+
+    border: none;
+    box-shadow:
+        0 0 4px #a3a3a37a,
+        0 0 7px #e00a0a21;
+}
+
+.button-atendido
+.prox-nome p,
+.prox-tipo p,
+.prox-senha p {
+    font-size: 1.05rem;
+    text-align: justify;
+
+    border-radius: 50px;
+    padding: 6px 6px 6px 10px;
+    box-shadow: 0 0 5px #00000033;
+}
+.prox-nome {
+    background-color: transparent;
+    /* background-color: red; */
+    width: 50%;
+    margin: 0;
+}
+.prox-tipo {
+    background-color: transparent;
+    /* background-color: #50525e; */
+    width: 23%;
+    margin: 0;
+}
+.prox-senha {
+    background-color: transparent;
+    /* background-color: #00669c; */
+    width: 23%;
+    margin: 0;
+}
+
+
+
+/* EM ATENDIMENTO */
+.atendimentoBox {
+    /* background-color: palevioletred; */
+
+    display: flex;
+    flex-flow: column wrap;
+
+    width: 590px;
+    height: 306.41px;
+    
+    padding: 15px;
+
+    border-radius: 10px;
+    background-color: #fff;
+
+    box-shadow:
+        0.5px 0.5px 1px #a3a3a35d,
+        0.5px 3px 7px #a3a3a370,
+        inset -1.5px -1.5px 3px #c9c9c970;
+}
+.atendimentoBox h1 {
+    font-size: 1.6rem;
+    text-align: center;
+    background-color: #e00a0a;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px;
+    width: 554px;
+
+    box-shadow:
+        0 0 4px #a3a3a37a,
+        0 0 7px #e00a0a21;
+}
+
+.atendimento {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.atend h3 {
+    font-size: 1.3rem;
+    font-weight: 100;
+    color: #50525ebe;
+    margin-bottom: 0;
+    margin-left: 10px;
+    margin-top: 0;
+}
+.atend p{
+    font-size: 1.3rem;
+    text-align: justify;
+
+    border-radius: 50px;
+    padding: 10px 10px 10px 14px;
+    box-shadow: 0 0 5px #00000033;
+
+    margin-top: 10px;
+    width: 550px;
+}
+
+
+
+/* HISTÓRICO */
+.historicoBox {
+    /* background-color: orange; */
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+
+    width: 590px;
+    height: 252.58px;
+    padding: 15px;
+
+    border-radius: 10px;
+    background-color: #fff;
+
+    box-shadow:
+        0.5px 0.5px 1px #a3a3a35d,
+        0.5px 3px 7px #a3a3a370,
+        inset -1.5px -1.5px 3px #c9c9c970;
+}
+.historicoBox h1{
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #50525e;
+    border-radius: 50px;
+
+    /* margin-top: 0; */
+    margin-bottom: 15px;
+    text-align: center;
+}
+.historico{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.hist h3{
+    font-size: 1.3rem;
+    font-weight: 100;
+    color: #50525ebe;
+    margin-bottom: 0;
+    margin-left: 10px;
+    margin-top: 0;
+}
+.hist p{
+    font-size: 1.05rem;
+    text-align: justify;
+
+    border-radius: 50px;
+    padding: 6px 6px 6px 10px;
+    box-shadow: 0 0 5px #00000033;
+    width: 250px;
+}
+.direita-dois span{
+    margin-left: 500px;
+    font-size: 1.2rem;
+    color: #50525ebe;
+}
+.direita-dois span:hover{
+    cursor: pointer;
+    color: #50525e;
+    transition: 0.3s;
+}
+
+/* Deixando responsivo */
+
+/* Mobile */
+@media (max-width: 768px) {
+    .naveg {
+        padding: 5px 10px;
+    }
+
+    .naveg .logo {
+        width: 70px;
+    }
+
+    main {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin: 5px;
+    }
+    
+    .container {
+        max-width: 95%;
+        padding: 10px;
+    }
+
+    
+}
+
+/* Desktop grande*/
+@media (min-width: 1200px) {
+    .naveg {
+        padding: 10px 20px;
+    }
+
+    main {
+        margin: 20px;
+    }
+    
+}
+

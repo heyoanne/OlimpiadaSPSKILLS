@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-flow: column;
+}
+
+
+/* "Nav" */
+.nav {
+    height: 100px;
+    background-color: #004680;
+    display: flex;
+    align-items: center;
+}
+
+.senai {
+    height: 50%;
+    margin-left: 30px;
+}
+
+
+/* conteúdo */
+.conteudo {
+    display: flex;
+    flex-flow: row;
+}
+
+.senhas_qr {
+    /* Área que fica a senhas e o qr */
+    height: calc(100vh - 100px);
+    /* subtrai a altura da nav */
+    width: 75%;
+    background-color: rgb(255, 255, 255);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+.historico {
+    /* Área que fica o historico */
+    height: calc(100vh - 100px);
+    /* subtrai a altura da nav */
+    width: 25%;
+    background-color: #004680;
+
+}
+
+
+/* Conteúdo da parte da senha e qr */
+
+/* Caixa que fica a senha que está sendo chamada */
+#senhaChamada {
+    height: 33%;
+    width: 80%;
+    background-color: #EDEDED;
+    border-radius: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row;
+}
+
+.senhaGuichê {
+    /* div da fonte */
+    color: #004680;
+    margin: 0;
+    padding: 0;
+
+    font-size: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row;
+}
+
+.senhaChamada_sub {
+    width: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+.chamado {
+    /* div da fonte */
+    font-size: 90px;
+
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+p,
+img {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Caixa que fica os qr */
+#qr {
+    margin-top: 45px;
+    height: 45%;
+    width: 80%;
+
+
+    display: flex;
+    flex-flow: row;
+}
+
+.qr_sub {
+    /* div dos qr */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+#gerarSenha,
+#internet {
+    /* div que fica os qr */
+    width: 50%;
+}
+
+.linhaQr {
+    background-color: #004680;
+    margin-top: 13px;
+    width: 1.5px;
+    height: 100%;
+}
+
+hr {
+    width: 1.5px;
+    height: auto;
+    background-color: #ffffff;
+}
+
+.linhaH {
+    position: absolute;
+    height: 68%;
+}
+
+#qr_img {
+    height: 300px;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    color: #004680;
+}
+
+
+/* Historico */
+p {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.senha,
+.guiche {
+    height: 100%;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
+
+#senhasGuiche,
+#titulo {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    color: #ffffff;
+}
+
+#titulo_sub {
+    margin-top: 10px;
+    margin-bottom: 45px;
+    color: #ffffff;
+}
+
+#chamadaSenha {
+    color: #ffffff;
+}
+
+.senhaGuiche_sub {
+    width: 50%;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    flex-flow: column;
+}
+
+.linhaHistórico {
+    margin-bottom: 25px;
+}
+
+
+/* botão */
+
+#btnLimparHistorico {
+
+    width: 99%;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-top: 10px;
+
+
+}
+
+.chamadoG,
+.chamadoS {
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.tituloqr {
+    font-size: 37px;
+}

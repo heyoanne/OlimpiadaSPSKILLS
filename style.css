@@ -1,0 +1,315 @@
+
+/* Configurações gerais */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+/* header */
+.senai {
+    max-width: 100%;
+    height: auto;
+}
+
+.headerIcon {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    transform: translate(0px, -20px);
+}
+
+#headerLogo {
+    height: 30px;
+    align-self: center;
+    border-radius: 5px;
+}
+
+
+/* Main */
+ main{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+    padding-top:12%;
+ }
+
+ #mainTitle{
+    font-size: 200%;
+    padding-right: 8%;
+    padding-left: 8%;
+
+    margin-bottom: 8%;
+    margin-top: 10%;
+    text-align: start;
+ }
+
+ #mainSubtitle{
+    font-size: 110%;
+    /* padding-left: 8%;
+    padding-right: 8%; */
+ }
+
+
+ /*  Primeira tela */
+ .inicial{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+    text-align: center;
+ }
+
+ .titles{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+ }
+
+ #btnPreferencial{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+    gap: px;
+}
+
+#preferencialIcons{
+    width: 70%;
+}
+
+
+ /* Config botões gerais */
+.bt_at{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    gap:35px;
+
+    margin-top: 10%;
+    margin-bottom: 8%;
+ }
+
+.atendimento{
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+    width:280px;
+    height: 120px;
+    
+    border-radius: 20px;
+    background: #F00;
+    border: none;
+
+    padding: 1.5%;
+
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+
+/* Footer */
+footer{
+    position: fixed ;
+    bottom: 0;
+
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 60px;
+    padding: 5px;
+
+    background-color: rgb(75, 76, 94);
+    color: #FFF;
+
+    font-size: 65%;
+}
+
+#versão {
+    color: rgb(174, 174, 174);
+    font-size: 12px;
+}
+
+.footerLogo{
+    width: 15%;
+}
+
+
+/* Input */
+.mainInput{
+    display: flex;
+    flex-flow: column;
+    align-items:center;
+    align-content: center;
+    justify-content: center;
+}
+
+.inputClass{
+    display: flex;
+    flex-flow: column;
+    align-items:center;
+    align-content: center;
+    justify-content: center;
+}
+
+.backInput{
+    display: flex;
+    flex-flow: row;
+    align-items:center;
+    align-content: center;
+    justify-content: center;
+}
+
+.input_label{
+     font-size: 23px;
+     align-self: flex-start;
+     text-align: start;
+
+     margin-left: 40px;
+     margin-bottom: 20px;
+     margin-top: 30px;
+}
+
+.lb_{
+    padding: 30px;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+
+    text-align: center;
+    align-self: center;
+
+    width:270px;
+}
+
+.inputBox{
+    border: rgb(155, 155, 155) solid 4px;
+    border-radius: 10px;
+
+    width:270px;
+    height: 45px;
+
+    padding-left: 5px;
+}
+
+.bt_envio{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+    width:270px;
+    height: 65px;
+    
+    border-radius: 20px;
+    background: #F00;
+    border: none;
+
+    padding: 1.5%;
+    margin-bottom: 30px;
+
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+
+/* Senha */
+
+.senha{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+    padding: 8%;
+}
+
+#title_senha{
+
+    font-size: 250%;
+    padding-right: 8%;
+    padding-left: 8%;
+
+    margin-bottom: 8%;
+    margin-top: 10%;
+
+    text-align: center;
+
+}
+
+#subTitle_senha{
+    font-size: 200%;
+    padding-right: 8%;
+    padding-left: 8%;
+
+    margin-bottom: 8%;
+    margin-top: 10%;
+
+    text-align: center;
+}
+
+#senha_output{
+    color: red;
+
+    padding: 30px;
+    font-size: 50px;
+
+    text-align: center;
+}
+
+#subTitle_teste{
+    font-size: 110%;
+    padding-right: 8%;
+    padding-left: 8%;
+
+    margin-bottom: 8%;
+    margin-top: 10%;
+
+    text-align: center;
+}
+
+/* Deixando responsivo */
+
+/* Botão */

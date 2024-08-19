@@ -1,0 +1,126 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tv.css">
+    <title>tela da TV</title>
+</head>
+
+<body>
+    <nav class="nav">
+        <img src="img/senai logo.png" class="senai">
+    </nav>
+    <div class="conteudo">
+        <div class="senhas_qr">
+            <div id="senhaChamada">
+                <div class="senhaChamada_sub" id="esquerda">
+                    <h1 class="senhaGuichê">Senha:</h1><br>
+                    <p class="chamadoS"><b></b></p>
+                </div>
+                <div class="senhaChamada_sub" id="direita">
+                    <h1 class="senhaGuichê">Guichê:</h1><br>
+                    <p class="chamadoG"><b></b></p>
+                </div>
+            </div><br>
+            <div id="qr">
+                <div class="qr_sub" id="gerarSenha">
+                    <h1 class="tituloqr">Gere sua senha</h1><br>
+                    <img src="img/qr-teste.png" id="qr_img">
+                </div>
+                <hr class="linhaQr"> 
+                <div class="qr_sub" id="internet">
+                    <h1 class="tituloqr">Conecte-se à Internet</h1><br>
+                    <img src="img/qr-internet.jpeg" id="qr_img">
+                </div>
+            </div>
+        </div>
+        <div class="historico">
+            <div class="historico_sub" id="titulo">
+                <h1 id="titulo_sub">Historico de Senhas</h1>
+            </div>
+            <div class="chamaSenha">
+                <div id="senhasGuiche">
+                    <div class="senhaGuiche_sub" id="chamadaSenha">
+    
+                    </div>
+                    <br>
+                    <hr class="linhaH"> 
+                    <div class="senhaGuiche_sub">
+                        <b>
+                        </b>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <script type="text/javascript">
+        window.addEventListener('storage', function(event) {
+            console.log('Evento storage disparado:', event);
+            if (event.key === 'senhaAtual') {
+                atualizarTela();
+            }
+        });
+        
+        function atualizarTela() {
+            var senhaChamada = JSON.parse(localStorage.getItem('senhaAtual'));
+            if (senhaChamada) {
+                var senhaAntiga = document.querySelector('.chamadoS b').innerText;
+                var guicheAntigo = document.querySelector('.chamadoG b').innerText;
+                
+                
+                document.querySelector('.chamadoS b').innerText = senhaChamada.senha;
+                document.querySelector('.chamadoG b').innerText = senhaChamada.guiche;
+        
+                
+                if (senhaAntiga && guicheAntigo && (senhaAntiga !== senhaChamada.senha || guicheAntigo !== senhaChamada.guiche)) {
+                    var historico = JSON.parse(localStorage.getItem('historico')) || [];
+                    historico.unshift({ senha: senhaAntiga, guiche: guicheAntigo });
+                    localStorage.setItem('historico', JSON.stringify(historico));
+                }
+        
+                var historico = JSON.parse(localStorage.getItem('historico')) || [];
+                var divChamadaSenha = document.getElementById('chamadaSenha');
+                var divGuiche = document.querySelector('.senhaGuiche_sub:not(#chamadaSenha)');
+                divChamadaSenha.innerHTML = '';
+                divGuiche.innerHTML = '';
+                historico.forEach(item => {
+                    var novoElementoSenha = document.createElement('p');
+                    var novoElementoGuiche = document.createElement('p');
+                    novoElementoSenha.innerText = item.senha;
+                    novoElementoGuiche.innerText = item.guiche;
+                    divChamadaSenha.appendChild(novoElementoSenha);
+                    divGuiche.appendChild(novoElementoGuiche);
+                });
+            }
+        }
+        
+        window.addEventListener('storage', function(event) {
+            if (event.key === 'senhaAtual') {
+                atualizarTela();
+            }
+        });
+        
+        atualizarTela();
+        
+        function limparHistorico() {
+            localStorage.removeItem('historico');  
+            localStorage.removeItem('senhaAtual');  
+        
+            var divChamadaSenha = document.getElementById('chamadaSenha');
+            var divGuiche = document.querySelector('.senhaGuiche_sub:not(#chamadaSenha)');
+            var chamadoS = document.querySelector('.chamadoS b');
+            var chamadoG = document.querySelector('.chamadoG b');
+        
+            divChamadaSenha.innerHTML = '';  
+            divGuiche.innerHTML = '';  
+            chamadoS.innerText = '';  
+            chamadoG.innerText = '';  
+        }
+        
+        </script>
+</body>
+
+</html>
