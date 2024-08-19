@@ -215,7 +215,7 @@ function showFormForMPag() {
   document.getElementById("matriculaOptions").style.display = "none";
   document.getElementById("formForFormulario").style.display = "block";
   document.getElementById("tipoAtendimentoSelecionado").value =
-    "Tpagas - Matriculas";
+    "Pagas - Matriculas";
 }
 
 function showFormForMGat() {
