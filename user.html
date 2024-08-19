@@ -1,272 +1,294 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Secretária</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="script/codgi.js" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-
-        <nav class="navbar">
-            <img src="img/header.png" class="senai">
-            <div class="headerIcon">
-                <img src="img/SENAI_São_Paulo_logo.png" id="headerLogo">
-            </div>
-        </nav>
-
+      <nav class="navbar">
+        <img src="img/header.png" class="senai" />
+        <div class="headerIcon">
+          <img src="img/SENAI_São_Paulo_logo.png" id="headerLogo" />
+        </div>
+      </nav>
     </header>
-
 
     <!-- Opções de atendimento -->
     <div class="inicial" id="initialOptions">
+      <div class="titles">
+        <h1 id="mainTitle">Seja bem vindo(a) a Recepção SENAI:</h1>
 
-        <div class="titles">
-            <h1 id="mainTitle">
-                Seja bem vindo(a) a Recepção SENAI:
-            </h1>
+        <h5 id="mainSubtitle">Selecione o modo de atendimento:</h5>
+      </div>
 
-            <h5 id="mainSubtitle">
-                Selecione o modo de atendimento:
-            </h5>
+      <div class="bt_at">
+        <button
+          class="atendimento"
+          id="btnPreferencial"
+          onclick="atdPreferencial('Preferencial')"
+        >
+          <label id="bt_lab"> Preferencial </label>
+          <img src="img/preferencialImg.png" id="preferencialIcons" />
+        </button>
 
-        </div>
+        <button
+          class="atendimento"
+          id="btnRegular"
+          onclick="atdRegular('Regular')"
+        >
+          <label id="bt_lab"> Regular </label>
+        </button>
+      </div>
 
-        <div class="bt_at">
-
-            <button class="atendimento" id="btnPreferencial" onclick="atdPreferencial('Preferencial')">
-                <label id="bt_lab"> Preferencial </label>
-                <img src="img/preferencialImg.png" id="preferencialIcons">
-            </button>
-
-            <button class="atendimento" id="btnRegular" onclick="atdRegular('Regular')">
-                <label id="bt_lab"> Regular </label>
-            </button>
-
-        </div>
-
-        <footer>
-            <h2 class="footerDescription">
-                Desenvolvido por
-                <br>
-                <label id="versão">Versão 0.1</label>
-            </h2>
-            <img src="img/logomasters.png" class="footerLogo">
-        </footer>
-
-
-
-
-
-
-
+      <footer>
+        <h2 class="footerDescription">
+          Desenvolvido por
+          <br />
+          <label id="versão">Versão 0.1</label>
+        </h2>
+        <img src="img/logomasters.png" class="footerLogo" />
+      </footer>
     </div>
 
-
     <!-- Opções Primárias -->
-    <div class="inicial" id="reasonOptions" style="display: none;">
+    <div class="inicial" id="reasonOptions" style="display: none">
+      <div class="backInput">
+        <img
+          id="backImg"
+          src="img/botao-voltar.png"
+          style="padding-left: 10px"
+          onclick="back_home()"
+        />
+        <h1 id="mainTitle">Selecione a opção desejada:</h1>
+      </div>
 
-        <div class="backInput">
-            <img id="backImg" src="img/botao-voltar.png" style="padding-left: 10px;" onclick="back_home()">
-            <h1 id="mainTitle">
-                Selecione a opção desejada:
-            </h1>
-        </div>
+      <div class="bt_at">
+        <button
+          class="atendimento"
+          id="btnVisitantes"
+          onclick="showFormForVisitantes()"
+        >
+          <label id="bt_lab"> Visitantes </label>
+        </button>
 
-        <div class="bt_at">
+        <button
+          class="atendimento"
+          id="btnFinanceiro"
+          onclick="showFormForFinanceiro()"
+        >
+          <label id="bt_lab"> Financeiro </label>
+        </button>
 
-            <button class="atendimento" id="btnVisitantes" onclick="showFormForVisitantes()">
-                <label id="bt_lab"> Visitantes </label>
-            </button>
+        <button
+          class="atendimento"
+          id="btnCursos"
+          onclick="showFormForCursos()"
+        >
+          <label id="bt_lab"> Cursos </label>
+        </button>
 
-            <button class="atendimento" id="btnFinanceiro" onclick="showFormForFinanceiro()">
-                <label id="bt_lab"> Financeiro </label>
-            </button>
-
-            <button class="atendimento" id="btnCursos" onclick="showFormForCursos()">
-                <label id="bt_lab"> Cursos </label>
-            </button>
-
-            <button class="atendimento" id="btnDocumentacao" onclick="showFormForDocumentacao()">
-                <label id="bt_lab"> Documentação </label>
-            </button>
-
-        </div>
-
+        <button
+          class="atendimento"
+          id="btnDocumentacao"
+          onclick="showFormForDocumentacao()"
+        >
+          <label id="bt_lab"> Documentação </label>
+        </button>
+      </div>
     </div>
 
     <!-- Opções Financeiro -->
-    <div class="inicial" id="formForFinanceiro" style="display: none;">
+    <div class="inicial" id="formForFinanceiro" style="display: none">
+      <div class="backInput">
+        <img
+          id="backImg"
+          src="img/botao-voltar.png"
+          style="padding-left: 10px"
+          onclick="back_opc()"
+        />
+        <h1 id="mainTitle">Selecione a opção desejada:</h1>
+      </div>
 
-        <div class="backInput">
-            <img id="backImg" src="img/botao-voltar.png" style="padding-left: 10px;" onclick="back_opc()">
-            <h1 id="mainTitle">
-                Selecione a opção desejada:
-            </h1>
-        </div>
+      <div class="bt_at">
+        <button
+          class="subReasonButton atendimento"
+          onclick="showformforBoletos('Boletos')"
+        >
+          <label id="bt_lab"> Retirada de boletos </label>
+        </button>
 
-        <div class="bt_at">
+        <button
+          class="subReasonButton atendimento"
+          onclick="showformforNegociacoes('Negociações')"
+        >
+          <label id="bt_lab"> Negociações (Pagamentos pendentes) </label>
+        </button>
 
-            <button class="subReasonButton atendimento" onclick="showformforBoletos('Boletos')">
-                <label id="bt_lab"> Retirada de boletos </label>
-            </button>
-
-            <button class="subReasonButton atendimento" onclick="showformforNegociacoes('Negociações')">
-                <label id="bt_lab"> Negociações (Pagamentos pendentes) </label>
-            </button>
-
-            <button class="subReasonButton atendimento" onclick="showformforAapm('AAPM')">
-                <label id="bt_lab"> AAPM </label>
-            </button>
-
-        </div>
-
+        <button
+          class="subReasonButton atendimento"
+          onclick="showformforAapm('AAPM')"
+        >
+          <label id="bt_lab"> AAPM </label>
+        </button>
+      </div>
     </div>
 
     <!-- Opções Cursos -->
-    <div class="inicial" id="subCursosOptions" style="display: none;">
+    <div class="inicial" id="subCursosOptions" style="display: none">
+      <div class="backInput">
+        <img
+          id="backImg"
+          src="img/botao-voltar.png"
+          style="padding-left: 10px"
+          onclick="cBack_opc()"
+        />
+        <h1 id="mainTitle">Selecione a opção desejada:</h1>
+      </div>
 
-        <div class="backInput">
-            <img id="backImg" src="img/botao-voltar.png" style="padding-left: 10px;" onclick="cBack_opc()">
-            <h1 id="mainTitle">
-                Selecione a opção desejada:
-            </h1>
-        </div>
+      <div class="bt_at">
+        <button
+          class="subReasonButton atendimento"
+          onclick="showFormForInfo('Informações de Cursos')"
+        >
+          <label id="bt_lab"> Informações de cursos </label>
+        </button>
 
-        <div class="bt_at">
+        <button
+          class="subReasonButton atendimento"
+          onclick="showFormForCancel('Cancelamento de Cursos')"
+        >
+          <label id="bt_lab"> Cancelamento de cursos </label>
+        </button>
 
-            <button class="subReasonButton atendimento" onclick="showFormForInfo('Informações de Cursos')">
-                <label id="bt_lab"> Informações de cursos </label>
-            </button>
+        <button
+          class="subReasonButton atendimento"
+          onclick="showMatriculaOptions('Matrículas Pagas')"
+        >
+          <label id="bt_lab"> Matriculas </label>
+        </button>
 
-            <button class="subReasonButton atendimento" onclick="showFormForCancel('Cancelamento de Cursos')">
-                <label id="bt_lab"> Cancelamento de cursos </label>
-            </button>
-
-            <button class="subReasonButton atendimento" onclick="showMatriculaOptions('Matrículas Pagas')">
-                <label id="bt_lab"> Matriculas </label>
-            </button>
-
-            <button class="subReasonButton atendimento" onclick="showFormForMaterial('Entrega de Material')">
-                <label id="bt_lab"> Entrega de material </label>
-            </button>
-
-
-        </div>
-
+        <button
+          class="subReasonButton atendimento"
+          onclick="showFormForMaterial('Entrega de Material')"
+        >
+          <label id="bt_lab"> Entrega de material </label>
+        </button>
+      </div>
     </div>
 
     <!-- Opções Matriculas -->
-    <div class="inicial" id="matriculaOptions" style="display: none;">
+    <div class="inicial" id="matriculaOptions" style="display: none">
+      <div class="backInput">
+        <img
+          id="backImg"
+          src="img/botao-voltar.png"
+          style="padding-left: 10px"
+          onclick="matBack_opc()"
+        />
+        <h1 id="mainTitle">Selecione a opção desejada:</h1>
+      </div>
 
-        <div class="backInput">
-            <img id="backImg" src="img/botao-voltar.png" style="padding-left: 10px;" onclick="matBack_opc()">
-            <h1 id="mainTitle">
-                Selecione a opção desejada:
-            </h1>
-        </div>
+      <div class="bt_at">
+        <button class="subReasonButton atendimento" onclick="showFormForMPag()">
+          <label id="bt_lab"> Matriculas pagas</label>
+        </button>
 
-        <div class="bt_at">
+        <button class="subReasonButton atendimento" onclick="showFormForMGat()">
+          <label id="bt_lab"> Matriculas Gratuitas </label>
+        </button>
 
-            <button class="subReasonButton atendimento" onclick="showFormForMPag()">
-                <label id="bt_lab"> Matriculas pagas</label>
-            </button>
-
-            <button class="subReasonButton atendimento" onclick="showFormForMGat()">
-                <label id="bt_lab"> Matriculas Gratuitas </label>
-            </button>
-
-            <button class="subReasonButton atendimento" onclick="showFormForMOn()">
-                <label id="bt_lab"> Matriculas online </label>
-            </button>
-
-        </div>
-
+        <button class="subReasonButton atendimento" onclick="showFormForMOn()">
+          <label id="bt_lab"> Matriculas online </label>
+        </button>
+      </div>
     </div>
 
     <!-- Opções Documentação -->
-    <div class="inicial" id="formForDocumentacao" style="display: none;">
+    <div class="inicial" id="formForDocumentacao" style="display: none">
+      <div class="backInput">
+        <img
+          id="backImg"
+          src="img/botao-voltar.png"
+          style="padding-left: 10px"
+          onclick="docBack_opc()"
+        />
+        <h1 id="mainTitle">Selecione a opção desejada:</h1>
+      </div>
 
-        <div class="backInput">
-            <img id="backImg" src="img/botao-voltar.png" style="padding-left: 10px;" onclick="docBack_opc()">
-            <h1 id="mainTitle">
-                Selecione a opção desejada:
-            </h1>
-        </div>
+      <div class="bt_at">
+        <button class="subReasonButton atendimento" onclick="showFormForCCm()">
+          <label id="bt_lab"> Certificados comuns </label>
+        </button>
 
-        <div class="bt_at">
+        <button class="subReasonButton atendimento" onclick="showFormForCSg()">
+          <label id="bt_lab"> Certificados anos anteriores ao SGSET </label>
+        </button>
 
-            <button class="subReasonButton atendimento" onclick="showFormForCCm()">
-                <label id="bt_lab"> Certificados comuns </label>
-            </button>
-
-            <button class="subReasonButton atendimento" onclick="showFormForCSg()">
-                <label id="bt_lab"> Certificados anos anteriores ao SGSET </label>
-            </button>
-
-            <button class="subReasonButton atendimento" onclick="showFormForDeclare()">
-                <label id="bt_lab"> Declarações </label>
-            </button>
-
-
-        </div>
-
-
+        <button
+          class="subReasonButton atendimento"
+          onclick="showFormForDeclare()"
+        >
+          <label id="bt_lab"> Declarações </label>
+        </button>
+      </div>
     </div>
 
-    <div class="inicial" id="formForFormulario" style="display: none;">
-        <div class="backInput">
-            <img id="backImg" src="img/botao-voltar.png" onclick="back_()">
-            <h1 id="mainTitle">Dados pessoais:</h1>
-        </div>
-        <div class="inputClass">
-            <label class="input_label">Nome</label>
+    <form action="API/process.php" method="post" class="inicial" id="formForFormulario" style="display: none">
+      <div class="backInput">
+        <img id="backImg" src="img/botao-voltar.png" onclick="back_()" />
+        <h1 id="mainTitle">Dados pessoais:</h1>
+      </div>
+      <div class="inputClass">
+        <label class="input_label">Nome</label>
 
-            <input type="text" placeholder="Digite aqui" id="inputNome" class="inputBox" required>
+        <input
+          type="text"
+          placeholder="Digite aqui"
+          id="inputNome"
+          name="nome"
+          class="inputBox"
+          required
+        />
 
-            <label class="input_label">Sobrenome</label>
+        <label class="input_label">Sobrenome</label>
 
-            <input type="text" placeholder="Digite aqui" id="inputSobrenome" class="inputBox" required>
+        <input
+          type="text"
+          placeholder="Digite aqui"
+          id="inputSobrenome"
+          name="sobrenome"
+          class="inputBox"
+          required
+        />
 
-            <label class="lb_">*Por questões de privacidade nome e sobrenome não serão divulgados</label>
+        <label class="lb_"
+          >*Por questões de privacidade nome e sobrenome não serão
+          divulgados</label
+        >
 
-            <input type="hidden" id="tipoAtendimentoSelecionado">
+        <input type="hidden" id="tipoAtendimentoSelecionado" name="atendimento"/>
 
-            <button class="bt_envio" onclick="enviarFormulario()">
-                Enviar
-            </button>
-        </div>
-    </div>
+        <!-- onclick="enviarFormulario()" -->
+        <button type="submit" class="bt_envio">Enviar</button>
+      </div>
+    </form>
 
     <!-- Final + Senha -->
-    <div class="senha" id="formForSenha" style="display: none;">
+    <div class="senha" id="formForSenha" style="display: none">
+      <h1 id="title_senha">Aguarde ser chamado(a)!</h1>
 
+      <h5 id="subTitle_senha">Sua Senha:</h5>
 
-        <h1 id="title_senha">
-            Aguarde ser chamado(a)!
-        </h1>
+      <h1 id="senha_output"></h1>
 
-
-
-        <h5 id="subTitle_senha">
-            Sua Senha:
-        </h5>
-
-        <h1 id="senha_output">
-
-        </h1>
-
-        <p id="subTitle_teste">
-            *Tire um print ou permaneça na tela para não perder sua senha
-        </p>
-
-
+      <p id="subTitle_teste">
+        *Tire um print ou permaneça na tela para não perder sua senha
+      </p>
     </div>
-
-</body>
-
+  </body>
 </html>

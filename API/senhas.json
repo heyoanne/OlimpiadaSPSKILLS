@@ -1,0 +1,12 @@
+[
+  {
+    "id": 0,
+    "nome_completo": "Teste Teste",
+    "tipo_atend": "Preferencial",
+    "atend": {
+      "guiche": 3,
+      "status": "Atendendo"
+    },
+    "senha": "P001"
+  }
+]
