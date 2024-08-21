@@ -1,52 +1,12 @@
 [
   {
-    "id": 0,
-    "nome_completo": "Teste Teste",
-    "tipo_atend": "Preferencial",
-    "atend": {
-      "guiche": 3,
-      "status": "Atendendo"
-    },
-    "senha": "P001"
-  },
-  {
     "id": 1,
     "nome_completo": "Teste Testes",
     "tipo_atend": "Cancelamento",
     "atend": {
-      "guiche": 0,
-      "status": "Na fila"
+      "guiche": "",
+      "status": "Atendendo"
     },
     "senha": "C001"
-  },
-  {
-    "id": 2,
-    "nome_completo": "Testew Testerte",
-    "tipo_atend": "SGSET - Certificados",
-    "atend": {
-      "guiche": 0,
-      "status": "Na fila"
-    },
-    "senha": "S001"
-  },
-  {
-    "id": 3,
-    "nome_completo": "Rerrerereer Ererere",
-    "tipo_atend": "AAPM",
-    "atend": {
-      "guiche": 0,
-      "status": "Na fila"
-    },
-    "senha": "A001"
-  },
-  {
-    "id": 4,
-    "nome_completo": "Rerrerereer Ererere",
-    "tipo_atend": "AAPM",
-    "atend": {
-      "guiche": 0,
-      "status": "Na fila"
-    },
-    "senha": "A002"
   }
 ]

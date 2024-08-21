@@ -72,23 +72,36 @@ if ($proctype == "generatepass") {
 } else if ($proctype == "callpass") {
 
     $var0 = filter_input(INPUT_POST, "senha");
-    // $var0 = filter_input(INPUT_POST, "senha");
-    // $var0 = filter_input(INPUT_POST, "senha");
+    
+    $var5 = filter_input(INPUT_POST, "guiche");
     
     $var1 = file_get_contents("senhas.json", true);
     $var2 = json_decode($var1, true);
+    
+    var_dump($var2);
 
     $var3 = func02($var2, "senha", $var0)[0];
-
+    
     // id
     $var4 = $var3["id"];
 
-    $var2[$var4] = [
+    $var6 = [
         "id" => $var3["id"],
         "nome_completo" => $var3["nome_completo"],
         "tipo_atend" => $var3["tipo_atend"],
-        "atend" => ["guiche" => $var9, "status" => "Atendendo"],
-        "senha" => $var8
+        "atend" => ["guiche" => $var5, "status" => "Atendendo"],
+        "senha" => $var3["senha"]
     ];
 
+    unset($var2[$var4]);
+
+    array_unshift($var2, $var6);
+
+    var_dump($var2);
+
+    file_put_contents("senhas.json", json_encode($var2));
+    
+    // header("location: ../index.php");
+
 }
+

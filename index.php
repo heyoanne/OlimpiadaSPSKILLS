@@ -72,9 +72,9 @@ $var1 = json_decode($var0, true);
 
                         <?php
 
-                        $var4 = func02($var1, "atend.status", "Na fila")
+                        $var4 = func02($var1, "atend.status", "Na fila");
 
-                            ?>
+                        ?>
 
                         <?php foreach ($var4 as $var2): ?>
                             <form method="post" action="API/process.php" class="proximos">
@@ -88,7 +88,8 @@ $var1 = json_decode($var0, true);
                                 <div class="prox-senha">
                                     <p><?= $var2["senha"] ?></p>
                                 </div>
-                                
+
+                                <input type="hidden" name="guiche" id="guiche" value="" required>
                                 <input type="hidden" name="senha" value="<?= $var2["senha"] ?>">
                                 <input type="hidden" name="proctype" value="callpass">
 
@@ -142,6 +143,11 @@ $var1 = json_decode($var0, true);
 
             <!-- Histórico -->
 
+            <?php
+
+            $var5 = func02($var1, "atend.status", "Atendendo");
+
+            ?>
 
             <div class="historicoBox">
                 <h1>HISTÓRICO:</h1>
@@ -149,14 +155,22 @@ $var1 = json_decode($var0, true);
                 <div class="historico">
                     <div class="hist historico-nome">
                         <h3>Nome:</h3>
-                        <p>Nome Sobrenome</p>
-                        <p>Nome Sobrenome</p>
+
+                        <?php foreach ($var5 as $var2): ?>
+
+                        <p><?= $var2["nome_completo"] ?></p>
+
+                        <?php endforeach; ?>
                     </div>
 
                     <div class="hist historico-senha">
                         <h3>Senha:</h3>
-                        <p>C0003</p>
-                        <p>M0005</p>
+
+                        <?php foreach ($var5 as $var2): ?>
+
+                            <p><?= $var2["senha"] ?></p>
+
+                        <?php endforeach; ?>
 
                     </div>
                 </div>
@@ -288,6 +302,9 @@ $var1 = json_decode($var0, true);
 
 
         function selecionarGuiche(numero) {
+
+            var var0 = document.getElementById("guiche");
+            var0.value = numero;
 
             var todosGuiches = document.querySelectorAll('.guiche');
             todosGuiches.forEach(function (guiche) {
