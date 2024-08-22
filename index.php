@@ -30,19 +30,19 @@ $var1 = json_decode($var0, true);
                     <h1>SELECIONE SEU GUICHÊ:</h1>
 
                     <div class="todosGuiches">
-                        <div class="guiche" data-guiche="1" onclick="selecionarGuiche('1')">
+                        <button class="guiche" data-guiche="1" onclick="selecionarGuiche('1')">
 
                             <img src="img/1.png">
-                        </div>
-                        <div class="guiche" data-guiche="2" onclick="selecionarGuiche('2')">
+                        </button>
+                        <button class="guiche" data-guiche="2" onclick="selecionarGuiche('2')">
                             <img src="img/2.png">
-                        </div>
-                        <div class="guiche" data-guiche="3" onclick="selecionarGuiche('3')">
+                        </button>
+                        <button class="guiche" data-guiche="3" onclick="selecionarGuiche('3')">
                             <img src="img/3.png">
-                        </div>
-                        <div class="guiche" data-guiche="4" onclick="selecionarGuiche('4')">
+                        </button>
+                        <button class="guiche" data-guiche="4" onclick="selecionarGuiche('4')">
                             <img src="img/4.png">
-                        </div>
+                        </button>
                     </div>
 
                 </div>
@@ -77,7 +77,7 @@ $var1 = json_decode($var0, true);
                         ?>
 
                         <?php foreach ($var4 as $var2): ?>
-                            <form method="post" action="API/process.php" class="proximos">
+                            <form method="post" action="API/process-server.php" class="proximos">
                                 <div class="prox-nome">
                                     <p class="proximo-nome"><?= $var2["nome_completo"] ?></p>
 
@@ -138,8 +138,6 @@ $var1 = json_decode($var0, true);
                     <?php endif; ?>
                 <?php endif; ?>
             </div>
-
-
 
             <!-- Histórico -->
 
@@ -206,7 +204,6 @@ $var1 = json_decode($var0, true);
             removerSenhaChamada(senha);
         }
 
-
         function adicionarAoHistorico(senha) {
             var historicoNomeElement = document.getElementById('historicoNome');
             var historicoSenhaElement = document.getElementById('historicoSenha');
@@ -226,7 +223,6 @@ $var1 = json_decode($var0, true);
             }
         }
 
-
         function removerSenhaChamada(senhaChamada) {
             var usuariosSenhas = JSON.parse(localStorage.getItem('usuariosSenhas')) || [];
             var indexUsuarioChamado = usuariosSenhas.findIndex(usuarioSenha => usuarioSenha.senha === senhaChamada);
@@ -236,7 +232,6 @@ $var1 = json_decode($var0, true);
                 atualizarTela();
             }
         }
-
 
         function chamarSenha() {
             var senhaAtual = document.getElementById('senhaExibida').innerText;
@@ -281,14 +276,9 @@ $var1 = json_decode($var0, true);
             // window.location.href = 'sua_pagina.html';
         }
 
-
-
         function obterSenhaDoLocalStorage() {
             return localStorage.getItem('senhaGerada');
         }
-
-
-
 
         function exibirSenha() {
             var senha = obterSenhaDoLocalStorage();
@@ -297,9 +287,7 @@ $var1 = json_decode($var0, true);
             }
         }
 
-
         window.onload = exibirSenha;
-
 
         function selecionarGuiche(numero) {
 

@@ -28,7 +28,7 @@ if (!isset($_SESSION["senha"])) {
         </nav>
     </header>
     <!-- Final + Senha -->
-    <div class="senha" id="formForSenha" style="">
+    <div class="senha" id="formForSenha">
         <h1 id="title_senha">Aguarde ser chamado(a)!</h1>
 
         <h5 id="subTitle_senha">Sua Senha:</h5>

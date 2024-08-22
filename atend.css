@@ -139,8 +139,8 @@ footer p {
 .guiche img {
     width: 45px;
 }
-.guiche:focus,
-.guiche:hover {
+
+.guiche:hover, .guiche:active {
     background-color: #ee0000;
     
     /* Fazer botão neomorthobic dentro e fora, vai ficar bom*/
@@ -206,7 +206,7 @@ a{
     background-color: #e00a0a;
     /* background-color: #00669c; */
     font-weight: bold;
-    color: #ffffff
+    color: #ffffff;
     border-radius: 50px;
 
     padding: 5px 12px ;
