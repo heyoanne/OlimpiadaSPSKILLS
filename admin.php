@@ -26,9 +26,7 @@ if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
 </head>
 
 <body>
-
     <main>
-
         <div class="content-um">
             <!-- Selecionar guiche -->
             <div class="guicheBorderBox">
@@ -36,24 +34,22 @@ if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
                     <h1>SELECIONE SEU GUICHÊ:</h1>
 
                     <div class="todosGuiches">
-                        <button class="guiche" data-guiche="1" onclick="selecionarGuiche('1')">
-
+                        <button type="button" class="guiche" data-guiche="1" onclick="selecionarGuiche('1')">
                             <img src="img/1.png">
                         </button>
-                        <button class="guiche" data-guiche="2" onclick="selecionarGuiche('2')">
+                        <button type="button" class="guiche" data-guiche="2" onclick="selecionarGuiche('2')">
                             <img src="img/2.png">
                         </button>
-                        <button class="guiche" data-guiche="3" onclick="selecionarGuiche('3')">
+                        <button type="button" class="guiche" data-guiche="3" onclick="selecionarGuiche('3')">
                             <img src="img/3.png">
                         </button>
-                        <button class="guiche" data-guiche="4" onclick="selecionarGuiche('4')">
+                        <button type="button" class="guiche" data-guiche="4" onclick="selecionarGuiche('4')">
                             <img src="img/4.png">
                         </button>
                     </div>
 
                 </div>
             </div>
-
 
             <!-- Próximos -->
             <div class="proximosBox">
@@ -99,7 +95,7 @@ if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
                                 </div>
 
                                 <input type="hidden" name="guiche" id="guiche" value="" required>
-                                <input type="hidden" name="senha" value="<?= $var2["senha"] ?>">
+                                <input type="hidden" name="senha" value="<?= $var2["senha"] ?>" required>
                                 <input type="hidden" name="proctype" value="callpass">
 
                                 <div class="botoes-chamar">
@@ -107,7 +103,7 @@ if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
                                 </div>
                             </form>
                         <?php endforeach; ?>
-                        
+
                         <?php foreach ($var6 as $var2): ?>
                             <form method="post" action="API/process-server.php" class="proximos">
                                 <div class="prox-nome">
@@ -144,9 +140,7 @@ if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
                 <?php if ($var1): ?>
 
                     <?php
-
                     $var2 = func02($var1, "atend.status", 'Atendendo');
-
                     ?>
 
                     <?php if (isset($var2[0])): ?>
@@ -175,9 +169,7 @@ if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
             <?php if (isset($var5)): ?>
 
                 <?php
-
                 $var5 = func02($var1, "atend.status", "Atendendo");
-
                 ?>
 
             <?php endif; ?>
@@ -185,10 +177,12 @@ if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
             <div class="historicoBox">
                 <h1>HISTÓRICO:</h1>
 
+                <div class="smth">
+                    <h3>Nome:</h3>
+                    <h3>Senha:</h3>
+                </div>
                 <div class="historico">
                     <div class="hist historico-nome">
-                        <h3>Nome:</h3>
-
                         <?php if (isset($var5)): ?>
 
                             <?php foreach ($var5 as $var2): ?>
@@ -200,7 +194,6 @@ if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
                     </div>
 
                     <div class="hist historico-senha">
-                        <h3>Senha:</h3>
                         <?php if (isset($var5)): ?>
 
                             <?php foreach ($var5 as $var2): ?>
@@ -213,7 +206,6 @@ if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
 
                     </div>
                 </div>
-                <span>Ver tudo</span>
             </div>
 
         </div>
@@ -335,7 +327,14 @@ if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
 
         function selecionarGuiche(numero) {
 
-            var var0 = document.getElementById("guiche");
+            var var0 = document.querySelectorAll("#guiche");
+
+            var0.forEach(element => {
+
+                element.value = numero
+                
+            });
+
             var0.value = numero;
 
             var todosGuiches = document.querySelectorAll('.guiche');
@@ -343,11 +342,10 @@ if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
                 guiche.classList.remove('guiche-selecionado');
             });
 
-
             guicheSelecionado = numero;
             console.log('Guichê selecionado: ' + guicheSelecionado);
-            var guicheSelecionadoElement = document.querySelector('.guiche[data-guiche="' + guicheSelecionado + '"]');
-            guicheSelecionadoElement.classList.add('guiche-selecionado');
+            // var guicheSelecionadoElement = document.querySelector('.guiche[data-guiche="' + guicheSelecionado + '"]');
+            // guicheSelecionadoElement.classList.add('guiche-selecionado');
         }
 
 

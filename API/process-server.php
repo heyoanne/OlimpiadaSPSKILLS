@@ -11,7 +11,7 @@ if ($proctype == "callpass") {
 
     $var5 = filter_input(INPUT_POST, "guiche");
 
-    if ((!isset($_SESSION["guiche"]) && $var5 != "")) {
+    if ((!isset($_SESSION["guiche"]) && $var5 != "") || (isset($_SESSION["guiche"]) && $var5 != $_SESSION["guiche"] && $var5 != "")) {
 
         $_SESSION["guiche"] = $var5;
 

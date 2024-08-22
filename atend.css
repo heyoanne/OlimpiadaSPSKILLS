@@ -140,7 +140,16 @@ footer p {
     width: 45px;
 }
 
-.guiche:hover, .guiche:active {
+.guiche:hover, .guiche:active, .guiche:focus {
+    background-color: #ee0000;
+    
+    /* Fazer botão neomorthobic dentro e fora, vai ficar bom*/
+    margin-top: 3px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.guiche-selecionado {
     background-color: #ee0000;
     
     /* Fazer botão neomorthobic dentro e fora, vai ficar bom*/
@@ -321,11 +330,11 @@ a{
 .historicoBox {
     /* background-color: orange; */
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
     justify-content: space-between;
 
     width: 590px;
-    height: 252.58px;
+    height: 300px;
     padding: 15px;
 
     border-radius: 10px;
@@ -336,6 +345,7 @@ a{
         0.5px 3px 7px #a3a3a370,
         inset -1.5px -1.5px 3px #c9c9c970;
 }
+
 .historicoBox h1{
     font-size: 1.6rem;
     font-weight: bold;
@@ -349,10 +359,23 @@ a{
 .historico{
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
     justify-content: space-between;
     width: 100%;
+
+    height: 100%;
+
+    overflow-y: scroll;
 }
+
+.smth {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-around;
+
+}
+
 .hist h3{
     font-size: 1.3rem;
     font-weight: 100;
