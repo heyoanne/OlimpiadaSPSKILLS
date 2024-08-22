@@ -9,6 +9,12 @@ require_once("API/conn.php");
 $var0 = file_get_contents("API/senhas.json");
 $var1 = json_decode($var0, true);
 
+if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
+
+    $var3 = file_put_contents("API/senhas.json", json_encode([]));
+    $_SESSION["initialized"] = true;
+}
+
 ?>
 
 <head>
@@ -74,16 +80,42 @@ $var1 = json_decode($var0, true);
 
                         $var4 = func02($var1, "atend.status", "Na fila");
 
+                        $var5 = func02($var4, "prioridade", "Preferencial");
+                        $var6 = func02($var4, "prioridade", "Regular");
+
                         ?>
 
-                        <?php foreach ($var4 as $var2): ?>
+                        <?php foreach ($var5 as $var2): ?>
                             <form method="post" action="API/process-server.php" class="proximos">
                                 <div class="prox-nome">
                                     <p class="proximo-nome"><?= $var2["nome_completo"] ?></p>
 
                                 </div>
                                 <div class="prox-tipo">
-                                    <p class="proximo-tipo" style="color:' + cor + ';"><?= $var2["tipo_atend"] ?></p>
+                                    <p class="proximo-tipo" style="color: red;"><?= $var2["tipo_atend"] ?></p>
+                                </div>
+                                <div class="prox-senha">
+                                    <p><?= $var2["senha"] ?></p>
+                                </div>
+
+                                <input type="hidden" name="guiche" id="guiche" value="" required>
+                                <input type="hidden" name="senha" value="<?= $var2["senha"] ?>">
+                                <input type="hidden" name="proctype" value="callpass">
+
+                                <div class="botoes-chamar">
+                                    <button class="button-chamar">Chamar</button>
+                                </div>
+                            </form>
+                        <?php endforeach; ?>
+                        
+                        <?php foreach ($var6 as $var2): ?>
+                            <form method="post" action="API/process-server.php" class="proximos">
+                                <div class="prox-nome">
+                                    <p class="proximo-nome"><?= $var2["nome_completo"] ?></p>
+
+                                </div>
+                                <div class="prox-tipo">
+                                    <p class="proximo-tipo" style="color: black;"><?= $var2["tipo_atend"] ?></p>
                                 </div>
                                 <div class="prox-senha">
                                     <p><?= $var2["senha"] ?></p>
@@ -140,12 +172,15 @@ $var1 = json_decode($var0, true);
             </div>
 
             <!-- Histórico -->
+            <?php if (isset($var5)): ?>
 
-            <?php
+                <?php
 
-            $var5 = func02($var1, "atend.status", "Atendendo");
+                $var5 = func02($var1, "atend.status", "Atendendo");
 
-            ?>
+                ?>
+
+            <?php endif; ?>
 
             <div class="historicoBox">
                 <h1>HISTÓRICO:</h1>
@@ -154,21 +189,27 @@ $var1 = json_decode($var0, true);
                     <div class="hist historico-nome">
                         <h3>Nome:</h3>
 
-                        <?php foreach ($var5 as $var2): ?>
+                        <?php if (isset($var5)): ?>
 
-                        <p><?= $var2["nome_completo"] ?></p>
+                            <?php foreach ($var5 as $var2): ?>
 
-                        <?php endforeach; ?>
+                                <p><?= $var2["nome_completo"] ?></p>
+
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
 
                     <div class="hist historico-senha">
                         <h3>Senha:</h3>
+                        <?php if (isset($var5)): ?>
 
-                        <?php foreach ($var5 as $var2): ?>
+                            <?php foreach ($var5 as $var2): ?>
 
-                            <p><?= $var2["senha"] ?></p>
+                                <p><?= $var2["senha"] ?></p>
 
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+
+                        <?php endif; ?>
 
                     </div>
                 </div>
@@ -193,7 +234,10 @@ $var1 = json_decode($var0, true);
             }
 
             console.log('Enviando senha para a TV: ' + senha + ' - Guichê: ' + guicheSelecionado);
-            localStorage.setItem('senhaAtual', JSON.stringify({ senha: senha, guiche: guicheSelecionado }));
+            localStorage.setItem('senhaAtual', JSON.stringify({
+                senha: senha,
+                guiche: guicheSelecionado
+            }));
 
             // Adicionar a senha ao histórico
             adicionarAoHistorico(senha);
@@ -295,7 +339,7 @@ $var1 = json_decode($var0, true);
             var0.value = numero;
 
             var todosGuiches = document.querySelectorAll('.guiche');
-            todosGuiches.forEach(function (guiche) {
+            todosGuiches.forEach(function(guiche) {
                 guiche.classList.remove('guiche-selecionado');
             });
 
@@ -323,7 +367,7 @@ $var1 = json_decode($var0, true);
             }
         }
 
-        window.addEventListener('storage', function (e) {
+        window.addEventListener('storage', function(e) {
             if (e.key === 'nomeUsuario') {
                 var elementoNome = document.querySelector('.proximo-nome');
                 if (elementoNome) {
@@ -339,7 +383,7 @@ $var1 = json_decode($var0, true);
             }
         });
 
-        window.onload = function () {
+        window.onload = function() {
             var nomeUsuario = localStorage.getItem('nomeUsuario');
             if (nomeUsuario) {
                 document.getElementById('nomeAtendente').innerText = nomeUsuario;
@@ -355,13 +399,13 @@ $var1 = json_decode($var0, true);
         }
         window.onload = atualizarTela;
 
-        window.addEventListener('storage', function (event) {
+        window.addEventListener('storage', function(event) {
             if (event.key === 'usuarioSenha') {
                 atualizarTela();
             }
         });
 
-        window.addEventListener('storage', function (event) {
+        window.addEventListener('storage', function(event) {
             if (event.key === 'usuariosSenhas') {
                 atualizarTela();
             }
@@ -373,7 +417,7 @@ $var1 = json_decode($var0, true);
         function obterTipo(senha) {
             var primeiraLetra = senha.charAt(0).toUpperCase();
             var tipo;
-            var cor = 'preto';  // cor padrão
+            var cor = 'preto'; // cor padrão
 
             if (primeiraLetra === 'P') {
                 tipo = 'Preferencial';

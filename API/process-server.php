@@ -21,7 +21,7 @@ if ($proctype == "callpass") {
 
     } else {
         
-        header("location: ../index.php?error=0");
+        header("location: ../admin.php?error=0");
         return;
 
     }
@@ -37,6 +37,7 @@ if ($proctype == "callpass") {
     $var6 = [
         "id" => $var3["id"],
         "nome_completo" => $var3["nome_completo"],
+        "prioridade" => $var3["prioridade"],
         "tipo_atend" => $var3["tipo_atend"],
         "atend" => ["guiche" => $_SESSION["guiche"], "status" => "Atendendo"],
         "senha" => $var3["senha"]
@@ -51,5 +52,5 @@ if ($proctype == "callpass") {
 
     file_put_contents("senhas.json", json_encode($var2));
 
-    header("location: ../index.php");
+    header("location: ../admin.php");
 }

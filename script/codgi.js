@@ -111,6 +111,7 @@ function enviarFormulario() {
 
 // Botão at_regular
 function atdRegular(type) {
+  document.getElementById("prioridade").value = "Regular";
   tipoAtendimentoSelecionado = "Regular";
   document.getElementById("initialOptions").style.display = "none";
   document.getElementById("reasonOptions").style.display = "block";
@@ -119,6 +120,7 @@ function atdRegular(type) {
 
 // Botão at_preferencial
 function atdPreferencial(type) {
+  document.getElementById("prioridade").value = "Preferencial";
   tipoAtendimentoSelecionado = "Preferencial";
   document.getElementById("initialOptions").style.display = "none";
   document.getElementById("reasonOptions").style.display = "block";

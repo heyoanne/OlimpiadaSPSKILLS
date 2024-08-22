@@ -15,6 +15,7 @@ if ($proctype == "generatepass") {
     // GERAR SENHA E PUXAR AS INFORMAÇÕES
 
     $var0 = filter_input(INPUT_POST, "atendimento");
+    $var14 = filter_input(INPUT_POST, "prioridade");
     $var1 = ucfirst(filter_input(INPUT_POST, "nome"));
     $var2 = ucfirst(filter_input(INPUT_POST, "sobrenome"));
 
@@ -53,6 +54,7 @@ if ($proctype == "generatepass") {
     $var4[] = [
         "id" => $var11,
         "nome_completo" => $var1 . " " . $var2,
+        "prioridade" => $var14,
         "tipo_atend" => $var0,
         "atend" => ["guiche" => $var9, "status" => $var10],
         "senha" => $var8
