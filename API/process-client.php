@@ -24,20 +24,23 @@ if ($proctype == "generatepass") {
 
     $var5 = substr($var0, 0, 1);
 
-    $var6 = func01($var4, "tipo_atend", $var0) + 1;
+    $var6 = count($var4);
+    // $var6 = func01($var4, "tipo_atend", $var0) + 1;
 
-    if ($var6 < 10 && $var6 < 100) {
+    // if ($var6 < 10 && $var6 < 100) {
 
-        $var7 = "00";
-    } else if ($var6 >= 10 && $var6 < 100) {
-
+    //     $var7 = "00";
+    // } else 
+    if ($var6 < 10) {
+        // && $var6 < 100
         $var7 = "0";
     } else {
 
         $var7 = "";
     }
 
-    $var8 = $var5 . $var7 . $var6;
+    // $var8 = $var5 . $var7 . $var6;
+    $var8 = $var7 . $var6;
 
     // var8 é a senha gerada
     echo $var8;

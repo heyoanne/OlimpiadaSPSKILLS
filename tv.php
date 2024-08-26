@@ -54,7 +54,7 @@ $var2 = func02($var1, "atend.status", "Atendendo");
         <div class="historico">
             <div class="historico_sub" id="titulo">
                 <!-- <audio src="call-to-attention-123107.mp3" controls></audio> -->
-                <h1 id="titulo_sub">Historico de Senhas</h1>
+                <h1 id="titulo_sub" style="text-align: center;">Historico de Senhas <br> Senha - guiche</h1>
             </div>
             <div class="chamaSenha">
                 <div id="senhasGuiche">
