@@ -53,6 +53,7 @@ $var2 = func02($var1, "atend.status", "Atendendo");
         </div>
         <div class="historico">
             <div class="historico_sub" id="titulo">
+                <!-- <audio src="call-to-attention-123107.mp3" controls></audio> -->
                 <h1 id="titulo_sub">Historico de Senhas</h1>
             </div>
             <div class="chamaSenha">
@@ -79,6 +80,44 @@ $var2 = func02($var1, "atend.status", "Atendendo");
     </div>
 
     <script type="text/javascript">
+        async function teste() {
+
+            i = 0;
+
+            var audio = new Audio('call-to-attention-123107.mp3');
+            audio.play();
+
+            setInterval(() => {
+
+                fetch("API/senhas.json").then(response => response.json()).then(data => {
+
+                    if (i == 0) {
+
+                        oldData = data[0]["senha"];
+
+                    }
+
+                    console.log(data[0]["senha"] + "----" + oldData)
+
+                    // if (oldData != data) {
+                    if (data[0]["senha"] != oldData) {
+                        location.reload()
+                        // console.log("reloaded")
+                    }
+
+                    i++
+
+                    oldData = data[0]["senha"]
+                    // oldData = data
+                })
+
+            }, 2000);
+
+
+        }
+
+        teste();
+
         window.addEventListener('storage', function(event) {
             console.log('Evento storage disparado:', event);
             if (event.key === 'senhaAtual') {

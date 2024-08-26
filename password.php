@@ -6,7 +6,7 @@
 require_once("API/conn.php");
 
 if (!isset($_SESSION["senha"])) {
-    header("location: user.html");
+    header("location: index.html");
 }
 
 ?>

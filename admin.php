@@ -11,8 +11,20 @@ $var1 = json_decode($var0, true);
 
 if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
 
-    $var3 = file_put_contents("API/senhas.json", json_encode([]));
+    $var6 = [
+        "id" => 0,
+        "nome_completo" => "",
+        "prioridade" => "Regular",
+        "tipo_atend" => "",
+        "atend" => ["guiche" => 0, "status" => "Null"],
+        "senha" => "A000"
+    ];
+    $var3 = file_put_contents("API/senhas.json", json_encode([$var6]));
+
     $_SESSION["initialized"] = true;
+
+    header("refresh: 2");
+
 }
 
 ?>
@@ -217,6 +229,38 @@ if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
 
     <!-- Script -->
     <script type="text/javascript">
+        async function teste() {
+
+            i = 0;
+
+            setInterval(() => {
+
+                fetch("API/senhas.json").then(response => response.json()).then(data => {
+
+                    if (i == 0) {
+                        oldData = data;
+                    }
+
+                    if (data.length != oldData.length) {
+
+                        setTimeout(() => {
+                            location.reload()
+                        }, 4000);
+
+                    }
+
+                    i++
+
+                    oldData = data
+                })
+
+            }, 2000);
+
+
+        }
+
+        teste();
+
         var guicheSelecionado = '';
 
         function enviarParaTV(senha, nome) {
@@ -332,7 +376,7 @@ if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
             var0.forEach(element => {
 
                 element.value = numero
-                
+
             });
 
             var0.value = numero;
