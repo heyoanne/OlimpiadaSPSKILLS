@@ -6,6 +6,7 @@
     font-family: 'Montserrat', sans-serif;
     margin: 0px;
     padding: 0px;
+    color: yellow;
 }
 
 body{
@@ -14,6 +15,9 @@ body{
     align-content: center;
     align-items: center;
     justify-content: center;
+    background-color: red;
+
+    
 
     overflow-y: hidden;
     overflow-x: hidden;
@@ -26,9 +30,21 @@ body{
 
 /* Header */
 
+<<<<<<< Updated upstream
 .navbar{
     width: 100%;
     height: 200px;
+=======
+/* header */
+.senai {
+    max-width: 100%;
+    height: auto;
+    background-color: red;
+
+}
+
+.headerIcon {
+>>>>>>> Stashed changes
     display: flex;
     align-items: center;
     align-content: center;
