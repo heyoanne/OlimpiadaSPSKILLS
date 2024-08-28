@@ -18,22 +18,21 @@ if (!isset($_SESSION["senha"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    
 </head>
 
 <body>
     <header>
         <nav class="navbar">
-            <img src="img/header.png" class="senai" />
-            <div class="headerIcon">
-                <img src="img/SENAI_São_Paulo_logo.png" id="headerLogo" />
-            </div>
+            <img src="img/SENAI_São_Paulo_logo.png" id="headerLogo" />
         </nav>
     </header>
+
     <!-- Final + Senha -->
     <div class="senha" id="formForSenha">
         <h1 id="title_senha">Aguarde ser chamado(a)!</h1>
 
-        <h5 id="subTitle_senha">Sua Senha:</h5>
+        <p id="subTitle_senha">Sua Senha:</p>
 
         <h1 id="senha_output"><?= $_SESSION["senha"] ?></h1>
 
