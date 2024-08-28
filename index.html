@@ -11,10 +11,7 @@
   <body>
     <header>
       <nav class="navbar">
-        <img src="img/header.png" class="senai" />
-        <div class="headerIcon">
-          <img src="img/SENAI_São_Paulo_logo.png" id="headerLogo" />
-        </div>
+        <img src="img/SENAI_São_Paulo_logo.png" id="headerLogo" />
       </nav>
     </header>
 
@@ -22,8 +19,7 @@
     <div class="inicial" id="initialOptions">
       <div class="titles">
         <h1 id="mainTitle">Seja bem vindo(a) a Recepção SENAI:</h1>
-
-        <h5 id="mainSubtitle">Selecione o modo de atendimento:</h5>
+        <p id="mainSubtitle">Selecione o modo de atendimento:</p>
       </div>
 
       <div class="bt_at">
@@ -45,14 +41,8 @@
         </button>
       </div>
 
-      <footer>
-        <h2 class="footerDescription">
-          Desenvolvido por
-          <br />
-          <label id="versão">Versão 0.1</label>
-        </h2>
-        <img src="img/logomasters.png" class="footerLogo" />
-      </footer>
+
+
     </div>
 
     <!-- Opções Primárias -->
@@ -61,7 +51,6 @@
         <img
           id="backImg"
           src="img/botao-voltar.png"
-          style="padding-left: 10px"
           onclick="back_home()"
         />
         <h1 id="mainTitle">Selecione a opção desejada:</h1>
@@ -108,7 +97,6 @@
         <img
           id="backImg"
           src="img/botao-voltar.png"
-          style="padding-left: 10px"
           onclick="back_opc()"
         />
         <h1 id="mainTitle">Selecione a opção desejada:</h1>
@@ -144,7 +132,6 @@
         <img
           id="backImg"
           src="img/botao-voltar.png"
-          style="padding-left: 10px"
           onclick="cBack_opc()"
         />
         <h1 id="mainTitle">Selecione a opção desejada:</h1>
@@ -187,7 +174,6 @@
         <img
           id="backImg"
           src="img/botao-voltar.png"
-          style="padding-left: 10px"
           onclick="matBack_opc()"
         />
         <h1 id="mainTitle">Selecione a opção desejada:</h1>
@@ -214,7 +200,6 @@
         <img
           id="backImg"
           src="img/botao-voltar.png"
-          style="padding-left: 10px"
           onclick="docBack_opc()"
         />
         <h1 id="mainTitle">Selecione a opção desejada:</h1>
@@ -238,14 +223,23 @@
       </div>
     </div>
 
-    <form action="API/process-client.php" method="post" class="inicial" id="formForFormulario" style="display: none">
+    <form
+      action="API/process-client.php"
+      method="post"
+      class="inicial"
+      id="formForFormulario"
+      style="display: none"
+    >
       <div class="backInput">
         <img id="backImg" src="img/botao-voltar.png" onclick="back_()" />
         <h1 id="mainTitle">Dados pessoais:</h1>
       </div>
-      <div class="inputClass">
-        <label class="input_label">Nome</label>
 
+
+      <div class="inputClass">
+
+        <div class="input">
+        <label class="input_label">Nome</label>
         <input
           type="text"
           placeholder="Digite aqui"
@@ -254,15 +248,17 @@
           class="inputBox"
           required
         />
+      </div>
 
-        <label class="input_label">Sobrenome</label>
+        <!-- <label class="input_label">Sobrenome</label> -->
 
         <input
-          type="text"
+          type="hidden"
           placeholder="Digite aqui"
           id="inputSobrenome"
           name="sobrenome"
           class="inputBox"
+          value=" "
           required
         />
 
@@ -271,10 +267,14 @@
           divulgados</label
         >
 
-        <input type="hidden" name="proctype" value="generatepass">
+        <input type="hidden" name="proctype" value="generatepass" />
 
-        <input type="hidden" id="prioridade" name="prioridade"/>
-        <input type="hidden" id="tipoAtendimentoSelecionado" name="atendimento"/>
+        <input type="hidden" id="prioridade" name="prioridade" />
+        <input
+          type="hidden"
+          id="tipoAtendimentoSelecionado"
+          name="atendimento"
+        />
 
         <!-- onclick="enviarFormulario()" -->
         <button type="submit" class="bt_envio">Enviar</button>
@@ -285,7 +285,7 @@
     <div class="senha" id="formForSenha" style="display: none">
       <h1 id="title_senha">Aguarde ser chamado(a)!</h1>
 
-      <h5 id="subTitle_senha">Sua Senha:</h5>
+      <p id="subTitle_senha">Sua Senha:</p>
 
       <h1 id="senha_output"></h1>
 
@@ -293,5 +293,15 @@
         *Tire um print ou permaneça na tela para não perder sua senha
       </p>
     </div>
+
+    <footer>
+      <div class="developed">
+        <h2 class="footerDescription">Desenvolvido por</h2>
+
+        <img src="img/logomasters.png" class="footerLogo" />
+      </div>
+
+      <label id="versionLabel">Versão 0.1</label>
+    </footer>
   </body>
 </html>
