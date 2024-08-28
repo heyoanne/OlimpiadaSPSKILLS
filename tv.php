@@ -40,21 +40,72 @@ $var2 = func02($var1, "atend.status", "Atendendo");
                 </div>
             </div><br>
             <div id="qr">
-                <div class="qr_sub" id="gerarSenha">
-                    <h1 class="tituloqr">Gere sua senha</h1><br>
-                    <img src="img/qr-teste.png" id="qr_img">
+                <div class="api-frontend">
+                    <div class="monday">
+                        <p id="temp"></p>
+                    </div>
+                    <div class="tuesday">
+                        <p id="temp"></p>
+                    </div>
+                    <div class="wednesday">
+                        <p id="temp"></p>
+                    </div>
+                    <div class="thursday">
+                        <p id="temp"></p>
+                    </div>
+                    <div class="friday">
+                        <p id="temp"></p>
+                    </div>
+                    <div class="saturday">
+                        <p id="temp"></p>
+                    </div>
+                    <div class="sunday">
+                        <p id="temp"></p>
+                    </div>
+
                 </div>
-                <hr class="linhaQr">
-                <div class="qr_sub" id="internet">
-                    <h1 class="tituloqr">Conecte-se à Internet</h1><br>
-                    <img src="img/qr-internet.jpeg" id="qr_img">
-                </div>
+
+                <script>
+                    var temperature = document.querySelectorAll("#temp")
+
+                    fetch("https://api.open-meteo.com/v1/forecast?latitude=-23.66&longitude=-46.52&hourly=temperature_2m,precipitation_probability&timezone=America%2FSao_Paulo").then(res => res.json()).then(data => {
+
+                        console.log(data)
+
+                        const d = new Date();
+
+                        setValues(temperature, data, d)
+
+                        setInterval(() => {
+
+                            setValues(temperature, data, d)
+
+                        }, 3.6e+6);
+
+                    })
+
+                    function setValues(temperature, data, d) {
+
+                        i = 0
+                        timeskip = 24
+
+                        temperature.forEach(element => {
+
+                            var0 = timeskip * i
+
+                            element.innerText = data["hourly"]["temperature_2m"][d.getHours() + var0] + data["hourly_units"]["temperature_2m"]
+
+                            i++
+
+                        });
+
+                    }
+                </script>
             </div>
         </div>
         <div class="historico">
             <div class="historico_sub" id="titulo">
-                <!-- <audio src="call-to-attention-123107.mp3" controls></audio> -->
-                <h1 id="titulo_sub" style="text-align: center;">Historico de Senhas <br> Senha - guiche</h1>
+                <h1 id="titulo_sub" style="text-align: center;">Historico de Senhas <br> Senha - Guichê</h1>
             </div>
             <div class="chamaSenha">
                 <div id="senhasGuiche">
@@ -76,39 +127,32 @@ $var2 = func02($var1, "atend.status", "Atendendo");
                 </div>
             </div>
         </div>
-
     </div>
 
+    <audio src="next-pass.mpeg" autoplay controls></audio>
+
     <script type="text/javascript">
-        async function teste() {
+        async function reloadOnUpdate() {
 
-            i = 0;
-
-            var audio = new Audio('call-to-attention-123107.mp3');
-            audio.play();
+            j = 0;
 
             setInterval(() => {
 
                 fetch("API/senhas.json").then(response => response.json()).then(data => {
 
-                    if (i == 0) {
-
+                    if (j == 0) {
                         oldData = data[0]["senha"];
-
                     }
 
-                    console.log(data[0]["senha"] + "----" + oldData)
+                    console.log(data[0]["senha"] + "------" + oldData)
 
-                    // if (oldData != data) {
                     if (data[0]["senha"] != oldData) {
                         location.reload()
-                        // console.log("reloaded")
                     }
 
-                    i++
+                    j++
 
                     oldData = data[0]["senha"]
-                    // oldData = data
                 })
 
             }, 2000);
@@ -116,7 +160,7 @@ $var2 = func02($var1, "atend.status", "Atendendo");
 
         }
 
-        teste();
+        reloadOnUpdate();
 
         window.addEventListener('storage', function(event) {
             console.log('Evento storage disparado:', event);

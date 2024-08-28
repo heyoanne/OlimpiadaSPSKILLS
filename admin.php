@@ -24,7 +24,6 @@ if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
     $_SESSION["initialized"] = true;
 
     header("refresh: 2");
-
 }
 
 ?>
@@ -221,7 +220,6 @@ if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
             </div>
 
         </div>
-        </div>
 
         <button class="button-atendido"> <a href="user.html"> Página TV </a></button>
         <button class="button-atendido"> <a href="tv.html"> user </a></button>
@@ -241,12 +239,8 @@ if (!isset($_SESSION["initialized"]) || $_SESSION["initialized"] != true) {
                         oldData = data;
                     }
 
-                    if (data.length != oldData.length) {
-
-                        setTimeout(() => {
-                            location.reload()
-                        }, 4000);
-
+                    if (data.length != oldData.length || data[0]["senha"] != oldData[0]["senha"]) {
+                        location.reload()
                     }
 
                     i++
