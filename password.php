@@ -9,6 +9,8 @@ if (!isset($_SESSION["senha"])) {
     header("location: index.html");
 }
 
+// header('Refresh: 10; URL=http://yoursite.com/page.php');
+
 ?>
 
 <head>
@@ -35,9 +37,9 @@ if (!isset($_SESSION["senha"])) {
 
         <h1 id="senha_output"><?= $_SESSION["senha"] ?></h1>
 
-        <p id="subTitle_teste">
-            *Tire um print ou permaneça na tela para não perder sua senha
-        </p>
+        <form action="index.html">
+            <div class=""><button type="submit" class="finalizar_btn">Finalizar</button></div>
+        </form>
     </div>
     <footer>
         <h2 class="footerDescription">
@@ -50,3 +52,7 @@ if (!isset($_SESSION["senha"])) {
 </body>
 
 </html>
+
+<!-- <script>
+
+</script> -->

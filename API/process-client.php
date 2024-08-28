@@ -7,10 +7,10 @@ $proctype = filter_input(INPUT_POST, "proctype");
 
 if ($proctype == "generatepass") {
 
-    if (isset($_SESSION["senha"])) {
-        header("location: ../password.php");
-        return;
-    }
+    // if (isset($_SESSION["senha"])) {
+    //     header("location: ../password.php");
+    //     return;
+    // }
 
     // GERAR SENHA E PUXAR AS INFORMAÇÕES
 
